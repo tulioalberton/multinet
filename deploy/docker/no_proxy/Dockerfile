@@ -4,11 +4,12 @@ ENV http_proxy=
 
 RUN apt-get update
 RUN apt-get install --force-yes -y wget
+RUN mkdir -p /opt
 RUN chmod 777 -R /opt
 RUN apt-get update
-RUN wget -P /opt/ https://raw.githubusercontent.com/tulioalberton/multinet/master/deploy/provision.sh
-RUN chmod +x /opt/provision.sh
-RUN /bin/bash -c "/opt/provision.sh $http_proxy"
+RUN wget -P /opt/ https://raw.githubusercontent.com/tulioalberton/multinet/master/deploy/commands.sh
+RUN chmod +x /opt/commands.sh
+RUN /bin/bash  "/opt/commands.sh $http_proxy"
 
 # Configure ssh-server
 RUN mkdir /var/run/sshd

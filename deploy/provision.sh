@@ -9,6 +9,7 @@
 BASE_DIR="/opt"
 VENV_DIR_MULTINET="venv_multinet"
 
+
 # PROXY value is passed either from Vagrantfile/Dockerfile
 #------------------------------------------------------------------------------
 if [ ! -z "$1" ]; then
@@ -56,7 +57,10 @@ pip3 $pip_options install --upgrade pip
 #------------------------------------------------------------------------------
 apt-get update && apt-get install -y \
     uuid-runtime \
-    mz
+    mz \
+    mc \
+    sudo \ 
+    apt-utils
 git clone https://github.com/mininet/mininet.git $BASE_DIR/mininet
 git --git-dir=$BASE_DIR/mininet/.git --work-tree=$BASE_DIR/mininet checkout -b 2.2.1 2.2.1
 
@@ -66,7 +70,9 @@ $BASE_DIR/mininet/util/install.sh -V 2.3.0
 mkdir $BASE_DIR/$VENV_DIR_MULTINET
 virtualenv --system-site-packages $BASE_DIR/$VENV_DIR_MULTINET
 
-git clone -b master https://github.com/intracom-telecom-sdn/multinet.git $BASE_DIR"/multinet"
+git clone -b master https://github.com/intracom-telecom-sdn/nstat.git $BASE_DIR"/nstat"
+
+git clone -b master https://github.com/tulioalberton/multinet.git $BASE_DIR"/multinet"
 source $BASE_DIR/$VENV_DIR_MULTINET/bin/activate
 pip $pip_options install -r $BASE_DIR"/multinet/deploy/requirements.txt"
 pip install -U pytest
@@ -76,6 +82,6 @@ deactivate
 #------------------------------------------------------------------------------
 chmod 777 -R $BASE_DIR
 
-apt-get -y mc
+
 
 
