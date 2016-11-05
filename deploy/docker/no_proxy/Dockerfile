@@ -9,7 +9,8 @@ RUN chmod 777 -R /opt
 RUN apt-get update
 RUN wget -P /opt/ https://raw.githubusercontent.com/tulioalberton/multinet/master/deploy/commands.sh
 RUN chmod +x /opt/commands.sh
-RUN /bin/bash  "/opt/commands.sh $http_proxy"
+RUN ls -la /opt
+RUN bash /opt/commands.sh
 
 # Configure ssh-server
 RUN mkdir /var/run/sshd
