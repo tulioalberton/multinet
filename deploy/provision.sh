@@ -75,3 +75,7 @@ deactivate
 # This step is required to run jobs with any user
 #------------------------------------------------------------------------------
 chmod 777 -R $BASE_DIR
+
+apt-get -y mc
+
+
