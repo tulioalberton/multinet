@@ -58,9 +58,8 @@ pip3 $pip_options install --upgrade pip
 apt-get update && apt-get install -y \
     uuid-runtime \
     mz \
-    mc \
-    sudo \ 
-    apt-utils
+    mc 
+
 git clone https://github.com/mininet/mininet.git $BASE_DIR/mininet
 git --git-dir=$BASE_DIR/mininet/.git --work-tree=$BASE_DIR/mininet checkout -b 2.2.1 2.2.1
 
