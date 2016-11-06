@@ -4,10 +4,10 @@
   "worker_ip_list": ["172.17.0.3", "172.17.0.4"],
   "worker_port_list": [3333, 3333],
         "deploy": {
-    "multinet_base_dir": "/opt/nstat/emulators/multinet",
+    "multinet_base_dir": "/opt/multinet",
     "ssh_port": 22,
     "username": "root",
-    "password": "root123"
+    "password": "zaq1"
   },
   "topo": {
     "controller_ip_address":"192.168.1.131",

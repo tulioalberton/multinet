@@ -1,1 +1,1 @@
-docker build  --cpu-shares 4 --label debian -t debianMultinet .
+docker build  --cpu-shares 4 --label debian -t multinet .

@@ -1,4 +1,4 @@
-FROM debian:latest
+FROM ubuntu:14.04
 
 ENV http_proxy=
 
@@ -10,7 +10,8 @@ RUN apt-get update
 RUN wget -P /opt/ https://raw.githubusercontent.com/tulioalberton/multinet/master/deploy/commands.sh
 RUN chmod +x /opt/commands.sh
 RUN ls -la /opt
-RUN bash /opt/commands.sh
+#RUN bash /opt/commands.sh
+RUN /bin/bash -c "/opt/commands.sh $http_proxy"
 
 # Configure ssh-server
 RUN mkdir /var/run/sshd
